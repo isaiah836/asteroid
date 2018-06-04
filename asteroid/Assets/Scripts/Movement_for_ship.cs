@@ -9,7 +9,8 @@ public class Movement_for_ship : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		tf = GetComponent<Transform>(); // Load our transform component into our variable
+        //tf = GetComponent<Transform>(); // Load our transform component into our variable
+        GameManager.instance.player = this;
 	}
 	
 	// Update is called once per frame
@@ -17,7 +18,7 @@ public class Movement_for_ship : MonoBehaviour {
 		// checks to see if the left or right key is pressed to rotate left or right every frame
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
-			tf.Rotate((Vector3.forward * turnSpeed), Space.Self);
+            GameManager.instance.player.transform.rotate = GameManager.instance.player.transform.rotate((Vector3.forward * turnSpeed), Space.Self);
 		}
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
