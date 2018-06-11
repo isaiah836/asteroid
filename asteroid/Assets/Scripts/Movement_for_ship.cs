@@ -9,8 +9,8 @@ public class Movement_for_ship : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        tf = GetComponent<Transform>(); // Load our transform component into our variable
         //GameManager.instance.player = this;
+        tf = GetComponent<Transform>(); // Load our transform component into our variable
 	}
 	
 	// Update is called once per frame
