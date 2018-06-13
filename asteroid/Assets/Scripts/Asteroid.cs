@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Asteroid : MonoBehaviour {
 
 	public float health;
 	public float moveSpeed;
@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		GameManager.instance.enemies.Add (this);
+		GameManager.instance.asteroids.Add (this);
 	}
 	
 	// Update is called once per frame
@@ -21,6 +21,6 @@ public class Enemy : MonoBehaviour {
 
 	void OnDestroy()
 	{
-		GameManager.instance.enemies.Remove (this);
+		GameManager.instance.asteroids.Remove (this);
 	}	
 }
