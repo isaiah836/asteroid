@@ -10,6 +10,7 @@ public class AsteroidMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         tf = GetComponent<Transform>();
+
     }
 	
 	// Update is called once per frame

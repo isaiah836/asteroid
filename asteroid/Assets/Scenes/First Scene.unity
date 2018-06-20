@@ -189,7 +189,6 @@ GameObject:
   - component: {fileID: 800290311}
   - component: {fileID: 800290314}
   - component: {fileID: 800290316}
-  - component: {fileID: 800290313}
   - component: {fileID: 800290312}
   - component: {fileID: 800290315}
   m_Layer: 0
@@ -233,19 +232,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &800290313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 800290310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a0342f1af973f14ab500e673d0ecb1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1520227166720368, guid: 905d4a090f76417408dd7736548cab12,
-    type: 2}
 --- !u!212 &800290314
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -628,6 +614,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1629811335}
+  - component: {fileID: 1629811336}
   m_Layer: 0
   m_Name: BulletSpawner
   m_TagString: Untagged
@@ -648,6 +635,20 @@ Transform:
   m_Father: {fileID: 800290311}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629811336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1629811334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0342f1af973f14ab500e673d0ecb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1520227166720368, guid: 905d4a090f76417408dd7736548cab12,
+    type: 2}
+  bullet: {fileID: 0}
 --- !u!1 &1732123418
 GameObject:
   m_ObjectHideFlags: 0

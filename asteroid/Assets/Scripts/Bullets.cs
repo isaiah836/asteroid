@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Bullets : MonoBehaviour {
     private Vector3 direction;
+    private Transform tf;
 
 	// Use this for initialization
 	void Start () {
+        //direction = GameManager.instance.player.transform.rotation;
+        tf = GetComponent<Transform>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
        
-        // transform.position += direction * GameManager.instance.bulletSpeed;
+        //transform.Translate = tf.position * direction * GameManager.instance.bulletSpeed;
     }
 }
