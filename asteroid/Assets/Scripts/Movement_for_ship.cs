@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Movement_for_ship : MonoBehaviour {
 	private Transform tf; // Create a variable for our transform component
-	public float moveSpeed; // creates a variable that will store the movement speed from the player component
-	public float turnSpeed; // creates a variable that will store the rotation speed from player component
+    public GameObject bulletSpawner;
 
 	// Use this for initialization
 	void Start () {
-        //GameManager.instance.player = this;
         tf = GetComponent<Transform>(); // Load our transform component into our variable
 	}
 	
@@ -18,21 +16,21 @@ public class Movement_for_ship : MonoBehaviour {
 		// checks to see if the left or right key is pressed to rotate left or right every frame
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
-            tf.Rotate(Vector3.forward * turnSpeed);
+            tf.Rotate(Vector3.forward * GameManager.instance.turnSpeed);
         }
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
-			tf.Rotate(Vector3.back * turnSpeed);
+			tf.Rotate(Vector3.back * GameManager.instance.turnSpeed);
 		}
 
 		// checks to see if the up or down key is pressed to move forward or back every frame 
 		if (Input.GetKey(KeyCode.UpArrow))
 		{
-			tf.position = tf.position + (tf.rotation * (Vector3.up * moveSpeed));
+			tf.position = tf.position + (tf.rotation * (Vector3.up * GameManager.instance.moveSpeed));
 		}
 		if (Input.GetKey (KeyCode.DownArrow))
 		{
-			tf.position = tf.position + (tf.rotation * (Vector3.down * moveSpeed));
+			tf.position = tf.position + (tf.rotation * (Vector3.down * GameManager.instance.moveSpeed));
 		}
 		
 	}
