@@ -5,15 +5,13 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public GameObject bullet;
     private Transform tf;
-    private Rigidbody2D bullet;
+    //private Rigidbody2D bulletSpawn;
 
     // Use this for initialization
     void Start()
     {
         tf = GetComponent<Transform>();
-        bullet = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -22,8 +20,16 @@ public class Shoot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Shoot");
-            GameObject bullet = Instantiate(bulletPrefab, GameManager.instance.player.tranform.position, Quaternion.identity);
-            bullet.AddForce(GameManager.instance.player.bulletSpawner.position.forward * GameManager.instance.bulletSpeed);
+            if (bulletPrefab == null)
+            {
+                Debug.Log("bullet prefab is null");
+            }
+            //if (bulletSpawn == null)
+            //{
+            //Debug.Log("bullet spawner is null");
+            //}
+            GameObject bullet = Instantiate(bulletPrefab, tf.position, Quaternion.identity);
+            bullet.transform.position= bullet.transform.position + (Vector3.up * GameManager.instance.bulletSpeed);
             Debug.Log("I'm Shooting");
         }
     }

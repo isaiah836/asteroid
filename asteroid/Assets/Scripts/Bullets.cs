@@ -8,14 +8,14 @@ public class Bullets : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //direction = GameManager.instance.player.transform.rotation;
+        //direction = GameManager.instance.player.transform.position;
         tf = GetComponent<Transform>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-       
-        //transform.Translate = tf.position * direction * GameManager.instance.bulletSpeed;
+
+        //transform.position = tf.position + (Vector3.forward * GameManager.instance.bulletSpeed);
     }
 }
