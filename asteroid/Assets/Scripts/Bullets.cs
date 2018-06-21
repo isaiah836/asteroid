@@ -18,7 +18,7 @@ public class Bullets : MonoBehaviour {
 	void Update ()
     {
         timer += Time.deltaTime;
-
+		Debug.Log(timer);
         if (timer > despawnTime)
         {
             Destroy(gameObject);
@@ -26,4 +26,11 @@ public class Bullets : MonoBehaviour {
 
         tf.position += (transform.up * (Time.deltaTime * GameManager.instance.bulletSpeed));
     }
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag("Asteroid"))
+		{
+
+		}
+	}
 }

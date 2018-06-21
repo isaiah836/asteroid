@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    private Transform tf;
-    //private Rigidbody2D bulletSpawn;
+	public GameObject bulletPrefab;
+	private Transform tf;
 
-    // Use this for initialization
-    void Start()
+	// Use this for initialization
+	void Start()
     {
         tf = GetComponent<Transform>();
     }
@@ -19,17 +18,9 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+			
             Debug.Log("Shoot");
-            if (bulletPrefab == null)
-            {
-                Debug.Log("bullet prefab is null");
-            }
-            //if (bulletSpawn == null)
-            //{
-            //Debug.Log("bullet spawner is null");
-            //}
             GameObject bullet = Instantiate(bulletPrefab, tf.position, GameManager.instance.bulletSpawner.transform.rotation);
-            Debug.Log("I'm Shooting");
-        }
+		}
     }
 }
