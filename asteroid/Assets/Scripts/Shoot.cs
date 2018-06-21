@@ -28,8 +28,7 @@ public class Shoot : MonoBehaviour
             //{
             //Debug.Log("bullet spawner is null");
             //}
-            GameObject bullet = Instantiate(bulletPrefab, tf.position, Quaternion.identity);
-            bullet.transform.position= bullet.transform.position + (Vector3.up * GameManager.instance.bulletSpeed);
+            GameObject bullet = Instantiate(bulletPrefab, tf.position, GameManager.instance.bulletSpawner.transform.rotation);
             Debug.Log("I'm Shooting");
         }
     }
