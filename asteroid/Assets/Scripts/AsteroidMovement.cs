@@ -20,8 +20,11 @@ public class AsteroidMovement : MonoBehaviour {
 	void Update () {
 		tf.Translate(Vector3.right * Time.deltaTime * GameManager.instance.asteroidSpeed);
 	}
-    void OnCollisionEnter2D( Collision2D Player )
+    void OnCollisionEnter2D( Collision2D other )
     {
-        Destroy(Player.gameObject);
+        if (other.gameObject.tag == "player")
+        {
+            GameManager.instance.player.transform.position = Vector3.zero;
+        }
     }
 }

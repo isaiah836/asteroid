@@ -20,19 +20,21 @@ public class Spawn_Points : MonoBehaviour {
 	void Update () {
 		enemySize = GameManager.instance.activeEnemies.Count;
 		ChooseSpawn = Random.Range(2, 2);
-		if (ChooseSpawn == 1)
-		{
+        int id = Random.Range(0, GameManager.instance.SpawnPoints.Length);
+        if (enemySize < MAXENEMYSIZE)
+        {
 			if (enemySize < MAXENEMYSIZE)
 			{
 				GameObject enemyShips = Instantiate(spawnEnemyShip, tf.position, Quaternion.identity) as GameObject;
 			}
-		}
-		else
-		{
-			if (enemySize < MAXENEMYSIZE)
-			{
-				GameObject spawnAsteroids = Instantiate(spawnAsteroid, tf.position, Quaternion.identity) as GameObject;
-			}
-		}
+            else
+            {
+                if (enemySize < MAXENEMYSIZE)
+                {
+                    GameObject spawnAsteroids = Instantiate(spawnAsteroid, GameManager.instance.SpawnPoints[id].transform.position, Quaternion.identity) as GameObject;
+                }
+            }
+        }
+		
 	}
 }

@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 790090124}
   m_Layer: 0
   m_Name: Spawn_point
-  m_TagString: Untagged
+  m_TagString: Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 800290315}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1123,6 +1123,10 @@ Prefab:
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690419784033590, guid: ecd3ee077f3a71244901e4b21b75d125, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114559048468239626, guid: ecd3ee077f3a71244901e4b21b75d125, type: 2}
