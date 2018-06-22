@@ -17,6 +17,18 @@ public class OutofBounds : MonoBehaviour {
     }
     void OnTriggerExit2D (Collider2D other)
     {
-        Destroy(other.gameObject); // Destroys the Game Object
+		if (other.gameObject.tag == "player")
+        {
+            GameManager.instance.player.transform.position = Vector3.zero;
+			foreach(ActiveEnemy item in GameManager.instance.activeEnemies)
+			{
+				Destroy(item.gameObject);
+			}
+			GameManager.instance.lives -= 1;
+        }
+		else
+		{
+			Destroy(other.gameObject); // Destroys the Game Object
+		}
     }
 }

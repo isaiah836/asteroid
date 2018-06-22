@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class Enemy_Movement : MonoBehaviour {
 
+	//Creates a variable for the transform
+    private Transform tf;
+	
 	// Use this for initialization
+	
 	void Start () {
-		
+        tf = GetComponent<Transform>();
+		tf = GetComponent<Transform>();
+		Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
+		LocalPosition.Normalize();
+		float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
+		LocalPosition.Normalize();
+		float angle = Mathf.Atan2(LocalPosition.y, LocalPosition.x) * Mathf.Rad2Deg;
+		Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle - 90);
+		transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, GameManager.instance.enemyRotationSpeed * Time.deltaTime);
+		tf.Translate(Vector3.up * Time.deltaTime * GameManager.instance.enemyShipSpeed);
 	}
 }

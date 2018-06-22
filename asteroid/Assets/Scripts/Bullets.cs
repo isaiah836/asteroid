@@ -26,11 +26,13 @@ public class Bullets : MonoBehaviour {
 
         tf.position += (transform.up * (Time.deltaTime * GameManager.instance.bulletSpeed));
     }
-	private void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag("Asteroid"))
+		if (other.gameObject.tag == "Enemy")
 		{
-
+			Destroy(other.gameObject);
+			++GameManager.instance.score;
+			Destroy(this.gameObject);
 		}
 	}
 }

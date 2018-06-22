@@ -21,7 +21,7 @@ public class Asteroid : MonoBehaviour {
 	void Update () {
 		
 	}
-	void OnTriggerEnter2D(Collider2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "Bullet")
 		{
@@ -30,6 +30,16 @@ public class Asteroid : MonoBehaviour {
 			// Also destroy bullet
 			Destroy(other.gameObject);
 		}
+		Debug.Log("1");
+		if (other.gameObject.tag == "player")
+        {
+            GameManager.instance.player.transform.position = Vector3.zero;
+			foreach(ActiveEnemy item in GameManager.instance.activeEnemies)
+			{
+				Destroy(item.gameObject);
+			}
+			GameManager.instance.lives -= 1;
+        }
 	}
 
 	void OnDestroy()
