@@ -649,8 +649,8 @@ MonoBehaviour:
   activeEnemies: []
   player: {fileID: 800290310}
   playerPosition: {fileID: 800290311}
-  turnSpeed: 6
-  moveSpeed: 0.3
+  turnSpeed: 130
+  moveSpeed: 12
   score: 0
   lives: 3
   spawnAsteroid: {fileID: 1081043849717092, guid: ecd3ee077f3a71244901e4b21b75d125,

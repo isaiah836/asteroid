@@ -8,6 +8,7 @@ public class AsteroidMovement : MonoBehaviour {
     private Transform tf;
 	// Use this for initialization
 	void Start () {
+		//This chunk of code gets the position of the player and rotates the asteroid towards the player
         tf = GetComponent<Transform>();
 		Vector3 LocalPosition = GameManager.instance.player.transform.position - tf.position;
 		LocalPosition.Normalize();
@@ -18,6 +19,7 @@ public class AsteroidMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//This moves the asteroid towards the players last known position
 		tf.Translate(Vector3.right * Time.deltaTime * GameManager.instance.asteroidSpeed);
 	}
     

@@ -14,23 +14,23 @@ public class Movement_for_ship : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// checks to see if the left or right key is pressed to rotate left or right every frame
-		if (Input.GetKey(KeyCode.LeftArrow))
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 		{
-            tf.Rotate(Vector3.forward * GameManager.instance.turnSpeed);
+            tf.Rotate(Vector3.forward * GameManager.instance.turnSpeed * Time.deltaTime);
         }
-		if (Input.GetKey(KeyCode.RightArrow))
+		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
 		{
-			tf.Rotate(Vector3.back * GameManager.instance.turnSpeed);
+			tf.Rotate(Vector3.back * GameManager.instance.turnSpeed * Time.deltaTime);
 		}
 
 		// checks to see if the up or down key is pressed to move forward or back every frame 
-		if (Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
 		{
-			tf.position = tf.position + (tf.rotation * (Vector3.up * GameManager.instance.moveSpeed));
+			tf.position = tf.position + (tf.rotation * (Vector3.up * GameManager.instance.moveSpeed * Time.deltaTime));
 		}
-		if (Input.GetKey (KeyCode.DownArrow))
+		if (Input.GetKey (KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
 		{
-			tf.position = tf.position + (tf.rotation * (Vector3.down * GameManager.instance.moveSpeed));
+			tf.position = tf.position + (tf.rotation * (Vector3.down * GameManager.instance.moveSpeed * Time.deltaTime));
 		}
 		
 	}

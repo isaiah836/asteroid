@@ -13,7 +13,9 @@ public class Asteroid : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		//Grabs the component
 		tf = GetComponent<Transform>();
+		//adds the object this script is attached to to a list of asteroids
 		GameManager.instance.asteroids.Add (this);
 	}
 	
@@ -23,6 +25,7 @@ public class Asteroid : MonoBehaviour {
 	}
 	void OnCollisionEnter2D(Collision2D other)
 	{
+		//This checks to see if it is colliding with a bullet and if it is it destroys the bullet and itself
 		if (other.gameObject.tag == "Bullet")
 		{
 			Destroy(this.gameObject);
@@ -30,7 +33,7 @@ public class Asteroid : MonoBehaviour {
 			// Also destroy bullet
 			Destroy(other.gameObject);
 		}
-		Debug.Log("1");
+		// this checks to see if it is colliding with the player and if it is it sends the player to the center and takes away a life
 		if (other.gameObject.tag == "player")
         {
             GameManager.instance.player.transform.position = Vector3.zero;
@@ -44,6 +47,7 @@ public class Asteroid : MonoBehaviour {
 
 	void OnDestroy()
 	{
+		//if this object is destroyed then this code removess the object this script is attached to from the asteroid list
 		GameManager.instance.asteroids.Remove (this);
 	}	
 }

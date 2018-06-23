@@ -6,6 +6,7 @@ public class enemyShips : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//adds this object this script is attached to to enemy ships
 		GameManager.instance.enemyShips.Add (this);
 	}
 	
@@ -15,6 +16,7 @@ public class enemyShips : MonoBehaviour {
 	}
 	void OnCollisionEnter2D(Collision2D other)
 	{
+		//checks to see if the gameobject colliding is a player if it is reset it to center and wipe the board of enemies and deducts a life
 		if (other.gameObject.tag == "player")
 		{
 			GameManager.instance.player.transform.position = Vector3.zero;
@@ -28,6 +30,7 @@ public class enemyShips : MonoBehaviour {
 	}	
 	void OnDestroy()
 	{
+		//When destroyed removes it from enemy ship list.
 		GameManager.instance.enemyShips.Remove (this);
 	}
 }

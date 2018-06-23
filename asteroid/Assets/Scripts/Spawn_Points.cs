@@ -9,7 +9,7 @@ public class Spawn_Points : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		tf = GetComponent<Transform>();
+	
 	}
 	
 	// Update is called once per frame
